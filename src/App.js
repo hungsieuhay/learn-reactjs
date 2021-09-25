@@ -4,9 +4,19 @@ import Header from './components/Header';
 import NotFound from './components/NotFound';
 import AlbumFeature from './features/Album';
 import CounterFeature from './features/Counter';
+import ProductFeature from './features/Product';
 import TodoFeature from './features/Todo';
 
 function App() {
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     const productList = await productApi.getAll();
+  //     console.log(productList);
+  //   };
+
+  //   fetchProducts();
+  // }, []);
+
   return (
     <div className="App">
       <Header />
@@ -14,7 +24,7 @@ function App() {
         <Route path="/" component={CounterFeature} exact></Route>
         <Route path="/todos" component={TodoFeature}></Route>
         <Route path="/albums" component={AlbumFeature}></Route>
-        {/* <Route path="/products" component={ProductFeature}></Route> */}
+        <Route path="/products" component={ProductFeature}></Route>
 
         <Route component={NotFound}></Route>
       </Switch>

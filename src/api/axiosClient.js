@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from 'axios';
 
 const axiosClient = axios.create({
-  baseURL: "https://api.ezfrontend.com/",
+  baseURL: 'https://api.ezfrontend.com/',
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 });
 // interceptors
@@ -31,7 +31,7 @@ axiosClient.interceptors.response.use(
     // Do something with response error
 
     const { config, status, data } = error.response;
-    const URLs = ["/auth/local/register", "/auth/local"];
+    const URLs = ['/auth/local/register', '/auth/local'];
     if (URLs.includes(config.url) && status === 400) {
       const errorList = data.data || [];
       const firstError = errorList.length > 0 ? errorList[0] : {};
