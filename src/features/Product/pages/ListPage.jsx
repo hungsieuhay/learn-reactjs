@@ -13,7 +13,9 @@ import queryString from 'query-string';
 ListPage.propTypes = {};
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    marginTop: '64px',
+  },
 
   left: {
     width: '250px',
@@ -145,7 +147,7 @@ function ListPage(props) {
   };
 
   return (
-    <Box>
+    <Box className={classes.root}>
       <Container>
         <Grid container spacing={1}>
           <Grid item className={classes.left}>
