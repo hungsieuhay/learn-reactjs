@@ -23,6 +23,7 @@ const cartSlice = createSlice({
         state.cartItems.push(newItem);
       }
     },
+
     setQuantity(state, action) {
       const { id, quantity } = action.payload;
       const index = state.cartItems.findIndex((x) => x.id === id);
@@ -38,5 +39,5 @@ const cartSlice = createSlice({
 });
 
 const { actions, reducer } = cartSlice;
-export const { showMiniCart, hideMiniCart } = actions;
+export const { showMiniCart, hideMiniCart, addToCart, setQuantity, removeFromCartAction } = actions;
 export default reducer;

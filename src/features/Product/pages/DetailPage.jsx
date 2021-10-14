@@ -1,6 +1,8 @@
 import { Box, Container, Grid, LinearProgress, makeStyles, Paper } from '@material-ui/core';
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { Route, Switch, useRouteMatch } from 'react-router';
+import { addToCart } from '../../Cart/cartSlice';
 import AddToCartForm from '../components/AddToCartForm';
 import ProductAdditional from '../components/ProductAdditional';
 import ProductDescription from '../components/ProductDescription';
@@ -45,6 +47,7 @@ function DetailPage(props) {
   } = useRouteMatch();
 
   const { product, loading } = useProductDetail(productId);
+  const dispath = useDispatch();
 
   if (loading) {
     return (
@@ -54,8 +57,14 @@ function DetailPage(props) {
     );
   }
 
-  const handleAddToCartSubmit = (formValues) => {
-    console.log('Form Values: ', formValues);
+  const handleAddToCartSubmit = ({ quantity }) => {
+    const action = addToCart({
+      id: product.id,
+      product,
+      quantity,
+    });
+    console.log(action);
+    dispath(action);
   };
   return (
     <Box className={classes.root}>
