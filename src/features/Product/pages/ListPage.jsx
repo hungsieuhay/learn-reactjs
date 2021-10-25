@@ -9,6 +9,7 @@ import ProductList from '../components/ProductList';
 import ProductSkeletonList from '../components/ProductSkeletonList';
 import ProductSort from '../components/ProductSort';
 import queryString from 'query-string';
+// import SearchTerm from '../components/SearchTerm';
 
 ListPage.propTypes = {};
 
@@ -50,6 +51,7 @@ function ListPage(props) {
       _sort: params._sort || 'salePrice:ASC',
       isPromotion: params.isPromotion === 'true',
       isFreeShip: params.isFreeShip === 'true',
+      // name: params.name,
     };
   }, [location.search]);
 
@@ -146,6 +148,19 @@ function ListPage(props) {
     });
   };
 
+  // const handleSearchTerm = (newFilters) => {
+  //   console.log('new filter:', newFilters);
+  //   const filters = {
+  //     ...queryParams,
+  //     name: newFilters.searchText,
+  //     _page: 1,
+  //   };
+  //   history.push({
+  //     pathname: history.location.pathname,
+  //     search: queryString.stringify(filters),
+  //   });
+  // };
+
   return (
     <Box className={classes.root}>
       <Container>
@@ -157,6 +172,7 @@ function ListPage(props) {
           </Grid>
 
           <Grid item className={classes.right}>
+            {/* <SearchTerm onSubmit={handleSearchTerm} /> */}
             <Paper elevation={3}>
               <ProductSort currentSort={queryParams._sort} onChange={handleSortChange} />
               <FilterViewer filters={queryParams} onChange={setNewFilter} />

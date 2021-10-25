@@ -83,7 +83,6 @@ export default function Header() {
   const [mode, setMode] = useState(MODE.LOGIN);
   const [anchorEl, setAnchorEl] = useState(null);
   const history = useHistory();
-  const cartData = useSelector(cartItemCountSelector);
 
   const handleClickOpen = () => {
     setOpen(true);

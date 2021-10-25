@@ -18,6 +18,19 @@ function App() {
   //   fetchProducts();
   // }, []);
 
+  // useEffect(() => {
+  //   async function fetchProducts() {
+  //     const requestUrl=""
+  //   const response = await fetch(requestUrl);
+  //   const responseJSON = await response.json();
+  //   console.log(responseJSON)
+
+  //   const {data} = responseJSON;
+  //   setProduct=(data);
+  //   }
+  //   fetchProducts();
+  // },[])
+
   return (
     <div className="App">
       <Header />
